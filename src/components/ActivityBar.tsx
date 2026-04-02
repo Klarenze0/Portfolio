@@ -1,4 +1,4 @@
-import { GitBranch, Link, Mail, ExternalLink, Code2 } from "lucide-react";
+import { GitBranch, Link, Mail, Code2 } from "lucide-react";
 import { aboutMe } from "../data/projects";
 
 type ActivityItem = {
@@ -16,7 +16,7 @@ export default function ActivityBar() {
       label: "Email",
       href: `mailto:${aboutMe.email}`,
     },
-    { icon: <ExternalLink size={22} />, label: "Live Portfolio", href: "#" },
+    // { icon: <ExternalLink size={22} />, label: "Live Portfolio", href: "#" },
   ];
 
   return (

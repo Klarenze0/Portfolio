@@ -103,14 +103,14 @@ export default function Editor({ activeProject }: EditorProps) {
           <span className="text-[#555555] select-none w-5 text-right">6</span>
           <span className="ml-6">
             <span className="text-[#9cdcfe]">githubUrl</span>
-              <span className="text-[#d4d4d4]">: </span>
-              <a
+            <span className="text-[#d4d4d4]">: </span>
+            <a
               href={activeProject.githubUrl}
-              target="_blank" rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-[#ce9178] hover:underline hover:text-[#f48771]"
-              >
+            >
               "{activeProject.githubUrl}"
-              
             </a>
             <span className="text-[#d4d4d4]">,</span>
           </span>
@@ -146,22 +146,28 @@ export default function Editor({ activeProject }: EditorProps) {
 
         {/* Action Buttons */}
         <div className="flex gap-3 ml-9">
-          <a>
+          <a
             href={activeProject.githubUrl}
-            target="_blank" rel="noopener noreferrer" className="flex
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex
             items-center gap-2 px-4 py-2 bg-[#2d2d2d] hover:bg-[#3c3c3c]
             text-[#d4d4d4] text-xs rounded border border-[#3c3c3c]
             transition-colors duration-200"
+          >
             <GitBranch size={14} />
             View on GitHub
           </a>
 
           {activeProject.liveUrl && (
-            <a>
+            <a
               href={activeProject.liveUrl}
-              target="_blank" rel="noopener noreferrer" className="flex
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex
               items-center gap-2 px-4 py-2 bg-[#007acc] hover:bg-[#006bb3]
               text-white text-xs rounded transition-colors duration-200"
+            >
               <ExternalLink size={14} />
               Live Demo
             </a>
