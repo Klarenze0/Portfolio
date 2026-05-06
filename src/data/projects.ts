@@ -93,6 +93,6 @@ export const aboutMe: AboutMe = {
   bio: "I am a full-stack developer passionate about building clean, efficient, and user-friendly web applications. I enjoy working across both frontend and backend systems, turning ideas into fully functional digital products. My focus is on writing maintainable code, creating responsive interfaces, and developing scalable backend solutions. I continuously explore modern technologies to improve my skills and deliver better, more impactful applications.",
   resumeUrl:
     "https://www.dropbox.com/scl/fi/8y2ykaukxm0s2a5v75p8v/DelaCruz_Resume.pdf?rlkey=c9g5kjejm7b5d64pudyk7vikf&st=9qpbmom6&dl=0",
-  photo: "../public/me.jpg",
+  photo: "/me.jpg",
   phonenum: "09684265172",
 };
