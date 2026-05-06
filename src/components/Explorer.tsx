@@ -18,7 +18,7 @@ export default function Explorer({
   const [isFolderOpen, setIsFolderOpen] = useState(true)
 
   return (
-    <div className="w-64 bg-[#252526] h-full border-r border-[#3c3c3c] flex flex-col pb-4">
+    <div className="w-64 bg-[#252526] h-full border-r border-[#3c3c3c] flex-col pb-4">
       {/* Header */}
       <div className="px-4 py-2 text-xs font-bold text-[#bbbbbb] tracking-widest uppercase">
         Explorer

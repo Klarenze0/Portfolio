@@ -1,14 +1,24 @@
-import { GitBranch, Link, Mail, Code2 } from "lucide-react";
+import { GitBranch, Link, Mail, Files } from "lucide-react";
 import { aboutMe } from "../data/projects";
 
 type ActivityItem = {
   icon: React.ReactNode;
   label: string;
-  href: string;
+  href?: string;
+  onClick?: () => void;
 };
 
-export default function ActivityBar() {
+type ActivityBarProps = {
+  onToggleExplorer: () => void;
+  isExplorerOpen: boolean;
+};
+
+export default function ActivityBar({
+  onToggleExplorer,
+  isExplorerOpen,
+}: ActivityBarProps) {
   const items: ActivityItem[] = [
+    { icon: <Files size={22} />, label: "Projects", onClick: onToggleExplorer },
     { icon: <GitBranch size={22} />, label: "GitHub", href: aboutMe.github },
     { icon: <Link size={22} />, label: "LinkedIn", href: aboutMe.linkedin },
     {
@@ -16,24 +26,30 @@ export default function ActivityBar() {
       label: "Email",
       href: `mailto:${aboutMe.email}`,
     },
-    // { icon: <ExternalLink size={22} />, label: "Live Portfolio", href: "#" },
   ];
 
   return (
     <div className="w-12 bg-[#333333] h-full flex flex-col items-center py-4 gap-6">
-      <div className="text-[#007acc] mb-4">
-        <Code2 size={24} />
-      </div>
-
       {items.map((item) => {
         return (
           <a
             key={item.label}
             href={item.href}
-            target="_blank"
+            onClick={
+              item.onClick
+                ? (e) => {
+                    e.preventDefault();
+                    item.onClick!();
+                  }
+                : undefined
+            }
+            target={item.onClick ? undefined : "_blank"}
             rel="noopener noreferrer"
-            className="text-[#858585] hover:text-[#d4d4d4] transition-colors duration-200 cursor-pointer p-1 rounded
-            hover:bg-[#2a2d2e] relative group"
+            className={`
+      transition-colors duration-200 cursor-pointer p-1 rounded
+      hover:bg-[#2a2d2e] relative group
+      ${item.label === "Projects" && isExplorerOpen ? "text-[#d4d4d4]" : "text-[#858585] hover:text-[#d4d4d4]"}
+    `}
           >
             {item.icon}
             <span

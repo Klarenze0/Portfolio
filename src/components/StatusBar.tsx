@@ -20,10 +20,10 @@ export default function StatusBar({ activeProject }: StatusBarProps) {
   })
 
   return (
-    <div className="h-6 bg-[#007acc] text-white text-xs flex items-center justify-between px-3 shrink-0">
+    <div className="h-6 bg-[#007acc] text-white text-xs flex items-center justify-between px-3 shrink-0 overflow-x-auto">
 
       {/* Left side */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 whitespace-nowrap">
         <div className="flex items-center gap-1">
           <GitBranch size={12} />
           <span>main</span>
@@ -40,7 +40,7 @@ export default function StatusBar({ activeProject }: StatusBarProps) {
       </div>
 
       {/* Right side */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 whitespace-nowrap">
         <span>Built with React + Tailwind</span>
         <span className="text-[#ffffff88]">|</span>
         <span>{formattedTime}</span>

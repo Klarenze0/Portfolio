@@ -14,6 +14,7 @@ function App() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [isAboutMeOpen, setIsAboutMeOpen] = useState(true);
   const [activeTab, setActiveTab] = useState<string | null>(ABOUT_ME_TAB);
+  const [isExplorerOpen, setIsExplorerOpen] = useState(false);
 
   const handleSelectProject = (project: Project) => {
     if (!openProjects.find((p) => p.id === project.id)) {
@@ -66,14 +67,15 @@ function App() {
       </div> */}
 
       <div className="flex flex-1 overflow-hidden">
-        <ActivityBar />
+        <ActivityBar onToggleExplorer={() => setIsExplorerOpen(prev => !prev)} isExplorerOpen={isExplorerOpen} />
 
+        {isExplorerOpen && 
         <Explorer
           onSelectProject={handleSelectProject}
           activeProjectId={activeProject?.id ?? null}
           onSelectAboutMe={handleSelectAboutMe}
           isAboutMeActive={activeTab === ABOUT_ME_TAB}
-        />
+        />}
 
         <div className="flex flex-col flex-1 overflow-hidden">
           <TabBar

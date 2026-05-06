@@ -1,159 +1,146 @@
-import { ExternalLink, GitBranch } from "lucide-react";
+import {
+  Calendar,
+  ExternalLink,
+  GitBranch,
+  Lightbulb,
+  Rocket,
+} from "lucide-react";
 import type { Project } from "../data/projects";
+import { techIcons } from "../data/techIcons";
 
 type EditorProps = {
   activeProject: Project | null;
 };
 
-const statusColors: Record<Project["status"], string> = {
-  completed: "text-[#4ec9b0]",
-  "in-progress": "text-[#dcb67a]",
-  archived: "text-[#858585]",
+const statusColors: Record<
+  Project["status"],
+  { bg: string; text: string; dot: string }
+> = {
+  completed: {
+    bg: "bg-[#1a3a2a]",
+    text: "text-[#4ec9b0]",
+    dot: "bg-[#4ec9b0]",
+  },
+  "in-progress": {
+    bg: "bg-[#3a2f1a]",
+    text: "text-[#dcb67a]",
+    dot: "bg-[#dcb67a]",
+  },
+  archived: { bg: "bg-[#2a2a2a]", text: "text-[#858585]", dot: "bg-[#858585]" },
 };
 
 export default function Editor({ activeProject }: EditorProps) {
   if (!activeProject) {
     return (
-      <div className="flex-1 bg-[#1e1e1e] flex flex-col items-center justify-center text-[#858585] gap-4">
-        <div className="text-6xl">👨‍💻</div>
-        <p className="text-lg font-mono">i will change this to my profile</p>
+      <div className="flex-1 bg-[#1e1e1e] flex flex-col items-center justify-center">
+        <p className="text-lg font-mono">Select a project to view details</p>
         <p className="text-sm font-mono text-[#555555]">
-          ← Click any file in the explorer
+          Click any file in the explorer
         </p>
       </div>
     );
   }
 
+  const status = statusColors[activeProject.status];
+
   return (
-    <div className="flex-1 bg-[#1e1e1e] overflow-auto p-6 font-mono">
-      {/* file path breadcrumb */}
-      <div className="text-xs text-[#858585] mb-6">
-        projects / <span className="text-[#cccccc]">{activeProject.name}</span>
-      </div>
+    <div className="flex-1 bg-[#1e1e1e] overflow-auto">
+      <div className="max-w-3x1 mx-auto px-8 py-10 font-mono">
+        {/* Breadcrumb */}
+        <div className="text-xs text-[$858585] mb-8">
+          projects /&nbsp;
+          <span className="text-[#cccccc]">{activeProject.name}.ts</span>
+        </div>
 
-      {/* code block */}
-      <div className="max-w-2x1">
-        {/* line 1 */}
-        <div className="flex gap-4 mb-1 hover:bg-[#2a2d2e] rounded transition-colors duration-100">
-          <span className="text-[#555555] select-none w-5 text-right">1</span>
-          <span>
-            <span className="text-[#569cd6]">const </span>
-            <span className="text-[#9cdcfe]">{activeProject.name}</span>
-            <span className="text-[#d4d4d4]"> = {"{"}</span>
+        {/* Project title + status */}
+        <div className="flex items-center gap-4 mb-2">
+          <h1 className="text-2x1 font-bold text-[#d4d4d4]">
+            {activeProject.name}
+          </h1>
+          <span
+            className={`flex items-center justify-center gap-1.5 px-2 py-1 rounded-full text-xs ${status.bg} ${status.text}`}
+          >
+            <span className={`w-1.5 h-1.5 rounded-full`} />
+            {activeProject.status}
           </span>
         </div>
 
-        {/* name */}
-        <div className="flex gap-4 mb-1 hover:bg-[#2a2d2e] rounded transition-colors duration-100">
-          <span className="text-[#555555] select-none w-5 text-right">2</span>
-          <span className="ml-6">
-            <span className="text-[#9cdcfe]">name</span>
-            <span className="text-[#d4d4d4]">: </span>
-            <span className="text-[#ce9178]">"{activeProject.name}"</span>
-            <span className="text-[#d4d4d4]">,</span>
-          </span>
-        </div>
+        <div className="w-6 h-0.5 bg-[#007acc] mb" />
 
-        {/* description */}
-        <div className="flex gap-4 mb-1 hover:bg-[#2a2d2e] rounded transition-colors duration-100">
-          <span className="text-[#555555] select-none w-5 text-right">3</span>
-          <span className="ml-6">
-            <span className="text-[#9cdcfe]">description</span>
-            <span className="text-[#d4d4d4]">: </span>
-            <span className="text-[#ce9178]">
-              "{activeProject.description}"
-            </span>
-            <span className="text-[#d4d4d4]">,</span>
-          </span>
-        </div>
-
-        {/* techStack */}
-        <div className="flex gap-4 mb-1 hover:bg-[#2a2d2e] rounded transition-colors duration-100">
-          <span className="text-[#555555] select-none w-5 text-right">4</span>
-          <span className="ml-6">
-            <span className="text-[#9cdcfe]">techStack</span>
-            <span className="text-[#d4d4d4]">: [</span>
-            {activeProject.techStack.map((tech, i) => (
-              <span key={tech}>
-                <span className="text-[#ce9178]">"{tech}"</span>
-                {i < activeProject.techStack.length - 1 && (
-                  <span className="text-[#d4d4d4]">, </span>
-                )}
-              </span>
-            ))}
-            <span className="text-[#d4d4d4]">],</span>
-          </span>
-        </div>
-
-        {/* status */}
-        <div className="flex gap-4 mb-1 hover:bg-[#2a2d2e] rounded transition-colors duration-100">
-          <span className="text-[#555555] select-none w-5 text-right">5</span>
-          <span className="ml-6">
-            <span className="text-[#9cdcfe]">status</span>
-            <span className="text-[#d4d4d4]">: </span>
-            <span className={statusColors[activeProject.status]}>
-              "{activeProject.status}"
-            </span>
-            <span className="text-[#d4d4d4]">,</span>
-          </span>
-        </div>
-
-        {/* githubUrl */}
-        <div className="flex gap-4 mb-1 hover:bg-[#2a2d2e] rounded transition-colors duration-100">
-          <span className="text-[#555555] select-none w-5 text-right">6</span>
-          <span className="ml-6">
-            <span className="text-[#9cdcfe]">githubUrl</span>
-            <span className="text-[#d4d4d4]">: </span>
-            <a
-              href={activeProject.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#ce9178] hover:underline hover:text-[#f48771]"
-            >
-              "{activeProject.githubUrl}"
-            </a>
-            <span className="text-[#d4d4d4]">,</span>
-          </span>
-        </div>
-
-        {/* liveUrl - optional */}
-        {activeProject.liveUrl && (
-          <div className="flex gap-4 mb-1 hover:bg-[#2a2d2e] rounded transition-colors duration-100">
-            <span className="text-[#555555] select-none w-5 text-right">7</span>
-            <span className="ml-6">
-              <span className="text-[#9cdcfe]">liveUrl</span>
-              <span className="text-[#d4d4d4]">: </span>
-              <a
-                href={activeProject.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#ce9178] hover:underline hover:text-[#f48771]"
-              >
-                "{activeProject.liveUrl}"
-              </a>
-              <span className="text-[#d4d4d4]">,</span>
-            </span>
+        {/* About the project */}
+        <div className="mb-8">
+          <div className="flex items-center gap-2 text-[#007acc] mb-3">
+            <Rocket size={16} />
+            <h2 className="text-sm font-bold uppercase tracking-widest">
+              About the Project
+            </h2>
           </div>
-        )}
-
-        {/* closing brace */}
-        <div className="flex gap-4 mb-6">
-          <span className="text-[#555555] select-none w-5 text-right">
-            {activeProject.liveUrl ? "8" : "7"}
-          </span>
-          <span className="text-[#d4d4d4]">{"}"}</span>
+          <p className="text-[#cccccc] text-sm leading-relaxed pl-6 border-l border-[#3c3c3c]">
+            {activeProject.description}
+          </p>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex gap-3 ml-9">
+        {/* Tech Stack */}
+        <div className="flex flex-wrap gap-2 pl-6 pb-3">
+          {activeProject.techStack.map((tech) => {
+            const techData = techIcons[tech];
+            return (
+              <span
+                key={tech}
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-[#2d2d2d] text-xs rounded border border-[#3c3c3c] hover:border-[#555555] transition-colors duration-200"
+                style={{ color: techData?.color ?? "#cccccc" }}
+              >
+                {techData && (
+                  <i className={`${techData.className} text-base`} />
+                )}
+                {tech}
+              </span>
+            );
+          })}
+        </div>
+
+        {/* What I Learned */}
+        <div className="mb-8">
+          <div className="flex items-center gap-2 text-[#007acc] mb-3">
+            <Lightbulb size={16} />
+            <h2 className="text-sm font-bold uppercase tracking-widest">
+              What I Learned
+            </h2>
+          </div>
+          <ul className="pl-6 border-l border-[#3c3c3c] space-y-2">
+            {activeProject.learned.map((item, i) => (
+              <li
+                key={i}
+                className="text-[#cccccc] text-sm flex items-start gap-2"
+              >
+                <span className="text-[#007acc] mt-0.5">▹</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Timeline */}
+        <div className="mb-10">
+          <div className="flex items-center gap-2 text-[#007acc] mb-3">
+            <Calendar size={16} />
+            <h2 className="text-sm font-bold uppercase tracking-widest">
+              Timeline
+            </h2>
+          </div>
+          <p className="text-[#cccccc] text-sm pl-6">
+            {activeProject.timeline}
+          </p>
+        </div>
+
+        {/* Action buttons */}
+        <div className="flex gap-3">
           <a
             href={activeProject.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex
-            items-center gap-2 px-4 py-2 bg-[#2d2d2d] hover:bg-[#3c3c3c]
-            text-[#d4d4d4] text-xs rounded border border-[#3c3c3c]
-            transition-colors duration-200"
+            className="flex items-center gap-2 px-5 py-2.5 bg-[#2d2d2d] hover:bg-[#3c3c3c] text-[#d4d4d4] 
+            text-xs rounded border border-[#3c3c3c] hover:border-[#007acc] transition-all duration-200"
           >
             <GitBranch size={14} />
             View on GitHub
@@ -164,15 +151,15 @@ export default function Editor({ activeProject }: EditorProps) {
               href={activeProject.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex
-              items-center gap-2 px-4 py-2 bg-[#007acc] hover:bg-[#006bb3]
-              text-white text-xs rounded transition-colors duration-200"
+              className="flex items-center 
+            gap-2 px-5 py-2.5 bg-[#007acc] hover:bg-[#006bb3] text-white text-xs rounded transition-all duration-200"
             >
               <ExternalLink size={14} />
               Live Demo
             </a>
           )}
         </div>
+
       </div>
     </div>
   );

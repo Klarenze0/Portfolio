@@ -6,6 +6,8 @@ export type Project = {
   githubUrl: string;
   liveUrl?: string;
   status: "completed" | "in-progress" | "archived";
+  learned: string[],
+  timeline: string,
 };
 
 export const projects: Project[] = [
@@ -16,8 +18,10 @@ export const projects: Project[] = [
       "A developer portfolio showcasing my projects and skills in modern web development, built with React, TypeScript, and Tailwind CSS. Designed with a VS Code inspired interface to reflect my passion for clean UI and developer-focused experiences.",
     techStack: ["React", "Typescript", "Tailwind CSS", "Vite"],
     githubUrl: "https://github.com/Klarenze0/Portfolio",
-    liveUrl: "N/A",
+    // liveUrl: "N/A",
     status: "in-progress",
+    learned: ['asda', 'asdasd'],
+    timeline: 'Feaasd',
   },
   {
     id: "2",
@@ -28,6 +32,8 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Klarenze0/appointment-system",
     // liveUrl: "",
     status: "completed",
+    learned: ['asda', 'asdasd'],
+    timeline: 'Feaasd',
   },
   {
     id: "3",
@@ -38,6 +44,8 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Klarenze0/Ethereal_Essence-mock_ecommerce",
     // liveUrl: "ill paste it here later",
     status: "completed",
+    learned: ['asda', 'asdasd'],
+    timeline: 'Feaasd',
   },
   {
     id: "4",
@@ -48,6 +56,8 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Klarenze0/KnightsTrial",
     // liveUrl: "ill paste it here later",
     status: "completed",
+    learned: ['asda', 'asdasd'],
+    timeline: 'Feaasd',
   },
   {
     id: "5",
@@ -58,6 +68,8 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Klarenze0/blog-system",
     // liveUrl: "ill paste it here later",
     status: "completed",
+    learned: ['asda', 'asdasd'],
+    timeline: 'Feaasd',
   },
 ];
 
