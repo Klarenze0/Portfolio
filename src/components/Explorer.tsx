@@ -61,12 +61,12 @@ export default function Explorer({
                 onClick={() => onSelectProject(project)}
                 className={`
                   flex items-center gap-2 px-2 py-1 cursor-pointer text-sm
-                  hover:bg-[#2a2d2e] transition-colors duration-150
+                  hover:bg-[#2a2d2e] transition-colors duration-150 overflow-hidden
                   ${activeProjectId === project.id ? "bg-[#37373d] text-white" : "text-[#cccccc]"}
                 `}
               >
                 <FileCode2 size={15} className="text-[#519aba]" />
-                <span>{project.name}</span>
+                <span className="truncate max-w-[100px] sm:max-w-[150px] lg:max-w-[200px]">{project.name}</span>
               </div>
             ))}
           </div>

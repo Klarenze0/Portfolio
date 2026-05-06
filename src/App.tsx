@@ -14,7 +14,7 @@ function App() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [isAboutMeOpen, setIsAboutMeOpen] = useState(true);
   const [activeTab, setActiveTab] = useState<string | null>(ABOUT_ME_TAB);
-  const [isExplorerOpen, setIsExplorerOpen] = useState(false);
+  const [isExplorerOpen, setIsExplorerOpen] = useState(true);
 
   const handleSelectProject = (project: Project) => {
     if (!openProjects.find((p) => p.id === project.id)) {

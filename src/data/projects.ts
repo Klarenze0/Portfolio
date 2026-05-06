@@ -82,6 +82,9 @@ export type AboutMe = {
   linkedin: string;
   bio: string;
   skills: string[];
+  resumeUrl: string,
+  photo: string,
+  phonenum: string,
 };
 
 export const aboutMe: AboutMe = {
@@ -93,4 +96,7 @@ export const aboutMe: AboutMe = {
   linkedin: "https://www.linkedin.com/in/charles-klarenze-dela-cruz-464a1a39b/",
   bio: "later",
   skills: ["ill", "list", "it", "here", "later"],
+  resumeUrl: '#',
+  photo: '/src/assets/me.png',
+  phonenum: '09684265172'
 };
