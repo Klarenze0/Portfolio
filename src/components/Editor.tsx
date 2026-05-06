@@ -1,8 +1,6 @@
 import {
-  Calendar,
   ExternalLink,
   GitBranch,
-  Lightbulb,
   Rocket,
 } from "lucide-react";
 import type { Project } from "../data/projects";
