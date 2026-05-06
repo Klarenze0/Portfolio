@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { aboutMe } from "../data/projects";
-import { Download, ExternalLink, Eye, EyeOff, Mail, MapPin, Phone } from "lucide-react";
+import {
+  Download,
+  ExternalLink,
+  Eye,
+  EyeOff,
+  Mail,
+  MapPin,
+  Phone,
+} from "lucide-react";
 
 const skills = [
   { label: "HTML", className: "devicon-html5-plain", color: "#e34f26" },
@@ -47,6 +55,7 @@ const skills = [
 
 export default function AboutMeEditor() {
   const [showPhone, setShowPhone] = useState(false);
+  const [showImage, setShowImage] = useState(false);
   return (
     <div className="flex-1 bg-[#1e1e1e] overflow-auto">
       <div className="max-w-3x1 mx-auto px-8 py-10 font-mono">
@@ -62,23 +71,39 @@ export default function AboutMeEditor() {
             <img
               src={aboutMe.photo}
               alt={aboutMe.name}
-              className="w-28 h-28 rounded-full object-cover border-2 border-[#007acc]"
+              onClick={() => setShowImage(true)}
+              className="w-36 h-36 sm:w-48 sm:h-48 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-full object-cover border-2 border-gray-500 cursor-pointer"
             />
+
+            {showImage && (
+              <div
+                className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 transition-transform duration-200 hover:scale-105"
+                onClick={() => setShowImage(false)}
+              >
+                <img
+                  src={aboutMe.photo}
+                  alt={aboutMe.name}
+                  className="max-w-[90%] max-h-[90%] rounded-lg object-contain"
+                />
+              </div>
+            )}
           </div>
 
           {/* Details */}
-          <div className="flex flex-col gap-2">
-            <h1 className="text-2x1 font-bold text-[#d4d4d4]">
+          <div className="flex flex-col gap-2 text-center sm:text-left">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#d4d4d4]">
               {aboutMe.name}
             </h1>
-            <p className="text-[#007acc]">{aboutMe.role}</p>
+            <p className="text-sm sm:text-base md:text-lg text-[#007acc]">
+              {aboutMe.role}
+            </p>
 
-            <div className="flex items-center gap-2 text-xs">
+            <div className="flex items-center gap-2 text-xs sm:text-sm md:text-base">
               <MapPin size={12} />
               <span>{aboutMe.location}</span>
             </div>
 
-            <div className="flex items-center gap-2 text-xs">
+            <div className="flex items-center gap-2 text-xs sm:text-sm md:text-base">
               <Mail size={12} />
               <a
                 href={`mailto:${aboutMe.email}`}
@@ -88,7 +113,7 @@ export default function AboutMeEditor() {
               </a>
             </div>
 
-            <div className="flex items-center gap-2 text-xs">
+            <div className="flex items-center gap-2 text-xs sm:text-sm md:text-base">
               <Phone size={12} />
 
               <span>
@@ -101,7 +126,7 @@ export default function AboutMeEditor() {
                 onClick={() => setShowPhone((prev) => !prev)}
                 className="text-[#007acc] hover:underline"
               >
-                {showPhone ? <EyeOff/> : <Eye/>}
+                {showPhone ? <EyeOff /> : <Eye />}
               </button>
             </div>
 

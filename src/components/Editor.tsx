@@ -81,7 +81,7 @@ export default function Editor({ activeProject }: EditorProps) {
         </div>
 
         {/* Tech Stack */}
-        <div className="flex flex-wrap gap-2 pl-6 pb-3">
+        <div className="flex flex-wrap gap-2 pl-6 pb-5">
           {activeProject.techStack.map((tech) => {
             const techData = techIcons[tech];
             return (
@@ -97,40 +97,6 @@ export default function Editor({ activeProject }: EditorProps) {
               </span>
             );
           })}
-        </div>
-
-        {/* What I Learned */}
-        <div className="mb-8">
-          <div className="flex items-center gap-2 text-[#007acc] mb-3">
-            <Lightbulb size={16} />
-            <h2 className="text-sm font-bold uppercase tracking-widest">
-              What I Learned
-            </h2>
-          </div>
-          <ul className="pl-6 border-l border-[#3c3c3c] space-y-2">
-            {activeProject.learned.map((item, i) => (
-              <li
-                key={i}
-                className="text-[#cccccc] text-sm flex items-start gap-2"
-              >
-                <span className="text-[#007acc] mt-0.5">▹</span>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Timeline */}
-        <div className="mb-10">
-          <div className="flex items-center gap-2 text-[#007acc] mb-3">
-            <Calendar size={16} />
-            <h2 className="text-sm font-bold uppercase tracking-widest">
-              Timeline
-            </h2>
-          </div>
-          <p className="text-[#cccccc] text-sm pl-6">
-            {activeProject.timeline}
-          </p>
         </div>
 
         {/* Action buttons */}

@@ -6,8 +6,6 @@ export type Project = {
   githubUrl: string;
   liveUrl?: string;
   status: "completed" | "in-progress" | "archived";
-  learned: string[],
-  timeline: string,
 };
 
 export const projects: Project[] = [
@@ -18,58 +16,57 @@ export const projects: Project[] = [
       "A developer portfolio showcasing my projects and skills in modern web development, built with React, TypeScript, and Tailwind CSS. Designed with a VS Code inspired interface to reflect my passion for clean UI and developer-focused experiences.",
     techStack: ["React", "Typescript", "Tailwind CSS", "Vite"],
     githubUrl: "https://github.com/Klarenze0/Portfolio",
-    // liveUrl: "N/A",
     status: "in-progress",
-    learned: ['asda', 'asdasd'],
-    timeline: 'Feaasd',
   },
   {
     id: "2",
     name: "Appointment System",
     description:
-      "A full-stack appointment and scheduling system built with Laravel 12 and React. It allows clients to book appointments online, staff to manage their schedules, and admins to oversee the entire operation from a central dashboard.",
-    techStack: ["Laravel", "PHP", "Tailwind CSS", "PostgreSQL", "React"],
+      "A full-stack appointment and scheduling system built with Laravel 12 and React. It enables clients to conveniently book appointments online in real-time, while providing staff with tools to manage their schedules efficiently and avoid conflicts. Administrators have full control through a centralized dashboard where they can monitor bookings, manage users, and oversee overall system activity. The platform is designed with a focus on usability, responsiveness, and scalability, ensuring a smooth experience across both desktop and mobile devices.",
+    techStack: [
+      "Laravel",
+      "PHP",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "React",
+      "TypeScript",
+    ],
     githubUrl: "https://github.com/Klarenze0/appointment-system",
-    // liveUrl: "",
     status: "completed",
-    learned: ['asda', 'asdasd'],
-    timeline: 'Feaasd',
   },
   {
     id: "3",
-    name: "Ethereal_Essence-mock_ecommerce",
+    name: "Ethereal Essence Mock Ecommerce",
     description:
-      "Designed and built a mock e-commerce platform as my 2nd year college project. Featuring frontend/backend integration, and simulated payment processing and admin side to manage products to demonstrate full transactional workflows.",
-    techStack: ["PHP", "MySQL"],
+      "Designed and developed a mock e-commerce platform as a 2nd year college project to demonstrate full-stack development skills. The system features seamless frontend and backend integration, allowing users to browse products, manage carts, and simulate a complete checkout process. It also includes an admin dashboard for managing products, inventory, and order data, showcasing full transactional workflows from both user and administrator perspectives.",
+    techStack: ["PHP", "MySQL", "CSS", "JavaScript"],
     githubUrl: "https://github.com/Klarenze0/Ethereal_Essence-mock_ecommerce",
-    // liveUrl: "ill paste it here later",
     status: "completed",
-    learned: ['asda', 'asdasd'],
-    timeline: 'Feaasd',
   },
   {
     id: "4",
-    name: "Knights trial",
+    name: "Knights Trial",
     description:
-      "2D platformer where player controls a knight to defeat monsters and clear levels. Implemented movement, combat system, health management, and enemy movements.",
+      "A 2D platformer game where the player controls a knight on a quest to defeat monsters and progress through multiple levels. The game features smooth character movement, a basic combat system, health management, and enemy with movement patterns. It focuses on delivering engaging gameplay mechanics while demonstrating core game development principles such as collision detection, state management, and interactive level design.",
     techStack: ["Unity", "C#"],
     githubUrl: "https://github.com/Klarenze0/KnightsTrial",
-    // liveUrl: "ill paste it here later",
     status: "completed",
-    learned: ['asda', 'asdasd'],
-    timeline: 'Feaasd',
   },
   {
     id: "5",
-    name: "Mini Blog System",
+    name: "Inventory Management System",
     description:
-      "A Laravel-based blog system developed for practice and to enhance my web development skills.",
-    techStack: ["Unity", "C#"],
+      "A web-based Inventory Management System built with Laravel, Inertia.js, and Vue 3. It provides a complete solution for managing products, categories, and suppliers, along with detailed stock movement tracking including stock in, stock out, and inventory adjustments. The system implements role-based access control to separate admin and staff permissions, ensuring secure operations. It also features real-time stock monitoring and activity logging to track changes and maintain transparency across all inventory transactions.",
+    techStack: [
+      "Laravel",
+      "PHP",
+      "Tailwind CSS",
+      "Supabase",
+      "Vue",
+      "TypeScript",
+    ],
     githubUrl: "https://github.com/Klarenze0/blog-system",
-    // liveUrl: "ill paste it here later",
     status: "completed",
-    learned: ['asda', 'asdasd'],
-    timeline: 'Feaasd',
   },
 ];
 
@@ -81,10 +78,9 @@ export type AboutMe = {
   github: string;
   linkedin: string;
   bio: string;
-  skills: string[];
-  resumeUrl: string,
-  photo: string,
-  phonenum: string,
+  resumeUrl: string;
+  photo: string;
+  phonenum: string;
 };
 
 export const aboutMe: AboutMe = {
@@ -94,9 +90,9 @@ export const aboutMe: AboutMe = {
   email: "charlesklarenze08@gmail.com",
   github: "https://github.com/Klarenze0",
   linkedin: "https://www.linkedin.com/in/charles-klarenze-dela-cruz-464a1a39b/",
-  bio: "later",
-  skills: ["ill", "list", "it", "here", "later"],
-  resumeUrl: '#',
-  photo: '/src/assets/me.png',
-  phonenum: '09684265172'
+  bio: "I am a full-stack developer passionate about building clean, efficient, and user-friendly web applications. I enjoy working across both frontend and backend systems, turning ideas into fully functional digital products. My focus is on writing maintainable code, creating responsive interfaces, and developing scalable backend solutions. I continuously explore modern technologies to improve my skills and deliver better, more impactful applications.",
+  resumeUrl:
+    "https://www.dropbox.com/scl/fi/8y2ykaukxm0s2a5v75p8v/DelaCruz_Resume.pdf?rlkey=c9g5kjejm7b5d64pudyk7vikf&st=9qpbmom6&dl=0",
+  photo: "/src/assets/me.jpg",
+  phonenum: "09684265172",
 };

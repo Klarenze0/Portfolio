@@ -65,8 +65,8 @@ export default function Explorer({
                   ${activeProjectId === project.id ? "bg-[#37373d] text-white" : "text-[#cccccc]"}
                 `}
               >
-                <FileCode2 size={15} className="text-[#519aba]" />
-                <span className="truncate max-w-[100px] sm:max-w-[150px] lg:max-w-[200px]">{project.name}</span>
+                <FileCode2 size={15} className="text-[#519aba] shrink-0" />
+                <span className="truncate block min-w-0">{project.name}</span>
               </div>
             ))}
           </div>
