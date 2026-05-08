@@ -67,15 +67,21 @@ function App() {
       </div> */}
 
       <div className="flex flex-1 overflow-hidden">
-        <ActivityBar onToggleExplorer={() => setIsExplorerOpen(prev => !prev)} isExplorerOpen={isExplorerOpen} />
+        <ActivityBar
+          onToggleExplorer={() => setIsExplorerOpen((prev) => !prev)}
+          isExplorerOpen={isExplorerOpen}
+        />
 
-        {isExplorerOpen && 
-        <Explorer
-          onSelectProject={handleSelectProject}
-          activeProjectId={activeProject?.id ?? null}
-          onSelectAboutMe={handleSelectAboutMe}
-          isAboutMeActive={activeTab === ABOUT_ME_TAB}
-        />}
+        {isExplorerOpen && (
+          <div className="hidden sm:block">
+            <Explorer
+              onSelectProject={handleSelectProject}
+              activeProjectId={activeProject?.id ?? null}
+              onSelectAboutMe={handleSelectAboutMe}
+              isAboutMeActive={activeTab === ABOUT_ME_TAB}
+            />
+          </div>
+        )}
 
         <div className="flex flex-col flex-1 overflow-hidden">
           <TabBar
