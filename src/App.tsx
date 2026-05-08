@@ -14,7 +14,9 @@ function App() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [isAboutMeOpen, setIsAboutMeOpen] = useState(true);
   const [activeTab, setActiveTab] = useState<string | null>(ABOUT_ME_TAB);
-  const [isExplorerOpen, setIsExplorerOpen] = useState(true);
+  const [isExplorerOpen, setIsExplorerOpen] = useState(
+    () => window.innerWidth >= 768
+  );
 
   const handleSelectProject = (project: Project) => {
     if (!openProjects.find((p) => p.id === project.id)) {
@@ -72,16 +74,14 @@ function App() {
           isExplorerOpen={isExplorerOpen}
         />
 
-        {isExplorerOpen && (
-          <div className="hidden sm:block">
-            <Explorer
-              onSelectProject={handleSelectProject}
-              activeProjectId={activeProject?.id ?? null}
-              onSelectAboutMe={handleSelectAboutMe}
-              isAboutMeActive={activeTab === ABOUT_ME_TAB}
-            />
-          </div>
-        )}
+        <div className={isExplorerOpen ? "block" : "hidden"}>
+          <Explorer
+            onSelectProject={handleSelectProject}
+            activeProjectId={activeProject?.id ?? null}
+            onSelectAboutMe={handleSelectAboutMe}
+            isAboutMeActive={activeTab === ABOUT_ME_TAB}
+          />
+        </div>
 
         <div className="flex flex-col flex-1 overflow-hidden">
           <TabBar
