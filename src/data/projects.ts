@@ -81,6 +81,12 @@ export type AboutMe = {
   resumeUrl: string;
   photo: string;
   phonenum: string;
+  workExperience: {
+    role: string;
+    company: string;
+    duration: string;
+    bullets: string[];
+  }[];
 };
 
 export const aboutMe: AboutMe = {
@@ -92,7 +98,28 @@ export const aboutMe: AboutMe = {
   linkedin: "https://www.linkedin.com/in/charles-klarenze-dela-cruz-464a1a39b/",
   bio: "I am a full-stack developer passionate about building clean, efficient, and user-friendly web applications. I enjoy working across both frontend and backend systems, turning ideas into fully functional digital products. My focus is on writing maintainable code, creating responsive interfaces, and developing scalable backend solutions. I continuously explore modern technologies to improve my skills and deliver better, more impactful applications.",
   resumeUrl:
-    "https://www.dropbox.com/scl/fi/8y2ykaukxm0s2a5v75p8v/DelaCruz_Resume.pdf?rlkey=c9g5kjejm7b5d64pudyk7vikf&st=9qpbmom6&dl=0",
+    "https://www.dropbox.com/scl/fi/9isu0nzdv8r5o77khouir/DelaCruz_Resume.pdf?rlkey=3cxpm8rdyqbds07ytgvyjppcy&st=hjeh9k47&dl=0",
   photo: "/me.jpg",
   phonenum: "09684265172",
+  workExperience: [
+    {
+      role: "Front End Developer Bootcamp",
+      company: "TDH International Inc.",
+      duration: "2 months",
+      bullets: [
+        "Developed and enhanced reusable UI components, resolved bugs, and applied front-end principles while integrating with backend APIs in an existing codebase.",
+        "Completed real-world Jira tickets covering feature development, API integration, and debugging, using browser DevTools for testing.",
+        "Collaborated with QA and other departments while using Git/GitLab for repository management, merge requests, and conflict resolution.",
+      ],
+    },
+    {
+      role: "Full Stack Web Developer",
+      company: "Highly Succeed Inc.",
+      duration: "3 months",
+      bullets: [
+        "Developed a full-stack appointment scheduling system using Laravel 12, React, Inertia.js, and PostgreSQL, implementing booking, staff scheduling, and admin management features.",
+        "Designed database schema and RESTful endpoints while building the corresponding React UI for booking flows and admin view.",
+      ],
+    },
+  ],
 };

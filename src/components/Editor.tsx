@@ -1,6 +1,7 @@
 import {
   ExternalLink,
   GitBranch,
+  Images,
   Rocket,
 } from "lucide-react";
 import type { Project } from "../data/projects";
@@ -75,6 +76,18 @@ export default function Editor({ activeProject }: EditorProps) {
           </div>
           <p className="text-[#cccccc] text-sm leading-relaxed pl-6 border-l border-[#3c3c3c]">
             {activeProject.description}
+          </p>
+        </div>
+
+        <div className="mb-8">
+          <div className="flex items-center gap-2 text-[#007acc] mb-3">
+            <Images size={16} />
+            <h2 className="text-sm font-bold uppercase tracking-widest">
+              Gallery
+            </h2>
+          </div>
+          <p className="text-[#cccccc] text-sm leading-relaxed pl-6 border-l border-[#3c3c3c]">
+            To be posted...
           </p>
         </div>
 

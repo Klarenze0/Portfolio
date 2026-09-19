@@ -174,6 +174,44 @@ export default function AboutMeEditor() {
           </p>
         </div>
 
+        <div className="mb-8">
+          <div className="text-xs font-bold text-[#007acc] uppercase tracking-widest mb-4">
+            Work Experience
+          </div>
+
+          <div className="flex flex-col gap-6">
+            {aboutMe.workExperience.map((job, i) => (
+              <div key={i} className="pl-6 border-l border-[#3c3c3c]">
+                {/* Role + Duration */}
+                <div className="flex items-start justify-between gap-4 mb-1">
+                  <div>
+                    <p className="text-[#d4d4d4] text-sm font-bold">
+                      {job.role}
+                    </p>
+                    <p className="text-[#007acc] text-xs">{job.company}</p>
+                  </div>
+                  <span className="text-[#858585] text-xs whitespace-nowrap">
+                    {job.duration}
+                  </span>
+                </div>
+
+                {/* Bullets */}
+                <ul className="mt-2 space-y-1.5">
+                  {job.bullets.map((bullet, j) => (
+                    <li
+                      key={j}
+                      className="text-[#cccccc] text-xs flex items-start gap-2 leading-relaxed"
+                    >
+                      <span className="text-[#007acc] mt-0.5 shrink-0">▹</span>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Skills */}
         <div>
           <div className="text-xs font-bold text-[#007acc] uppercase tracking-widest mb-4">
