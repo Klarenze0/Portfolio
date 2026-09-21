@@ -14,7 +14,7 @@ export const projects: Project[] = [
     name: "Portfolio",
     description:
       "A developer portfolio showcasing my projects and skills in modern web development, built with React, TypeScript, and Tailwind CSS. Designed with a VS Code inspired interface to reflect my passion for clean UI and developer-focused experiences.",
-    techStack: ["React", "Typescript", "Tailwind CSS", "Vite"],
+    techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"],
     githubUrl: "https://github.com/Klarenze0/Portfolio",
     status: "in-progress",
   },
@@ -66,6 +66,15 @@ export const projects: Project[] = [
       "TypeScript",
     ],
     githubUrl: "https://github.com/Klarenze0/blog-system",
+    status: "completed",
+  },
+  {
+    id: "6",
+    name: "Ma, ano ulam?",
+    description:
+      "A simple ulam randomizer/picker built to make deciding what to eat easier and less stressful. It lets users randomly pick from a list of Filipino dishes and filter them based on different categories. Built using React, JavaScript, and Tailwind CSS.",
+    techStack: ["React", "JavaScript", "Tailwind CSS"],
+    githubUrl: "https://github.com/Klarenze0/ma-ano-ulam",
     status: "completed",
   },
 ];
